@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/rmacca1511/vue-js-training-single-page-app#readme",
   "dependencies": {
+    "express": "^4.15.4",
     "vue": "^2.4.2"
   },
   "devDependencies": {}
