@@ -5,8 +5,12 @@ import Login from './theme/Login.vue'
 
 Vue.use(VueRouter)
 
+// History mode means we can use localhost:3000/login instead of localhost:3000/#/login
+
 const router = new VueRouter({
   mode: 'history',
+  linkActiveClass: 'is-active',
+  scrollBehavior: (to, from, savedPosition) => ({ y: 0 }),
   routes: [
     { path: '/login', component: Login },
     { path: '/', component: Category }
