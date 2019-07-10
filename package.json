@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/rmacca1511/vue-js-training-single-page-app#readme",
   "dependencies": {
+    "axios": "^0.16.2",
     "bulma": "^0.5.1",
     "express": "^4.15.4",
     "vue": "^2.4.2",
