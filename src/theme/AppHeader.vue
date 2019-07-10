@@ -11,17 +11,10 @@
     </nav>
 </template>
 <script>
-  import eventBus from '../event-bus.js'
-  export default {
-    data () {
-      return {
-        isAuthenticated: false
-      }
-    },
-    created () {
-      eventBus.$on('authStatusUpdate', isAuthenticated => {
-        this.isAuthenticated = isAuthenticated
-      })
-    }
+import {mapGetters} from 'vuex'
+export default {
+  computed: {
+    ...mapGetters(['isAuthenticated'])
   }
+}
 </script>
