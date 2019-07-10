@@ -55,7 +55,7 @@
 </template>
 <script>
   import appService from '../app.service.js'
-  import eventBus from '../event-bus.js'
+  import { mapGetters } from 'vuex'
   export default {
     data () {
       return {
@@ -65,18 +65,20 @@
         profile: {}
       }
     },
+    computed: {
+      ...mapGetters(['isAuthenticated'])
+    },
     watch: {
-      isAuthenticated: function (val) {
-        if (val) {
-          appService.getProfile()
-            .then(profile => {
-              this.profile = profile
-            })
-        } else {
-          this.profile = {}
-        }
-        eventBus.$emit('authStatusUpdate', val)
-      }
+      // isAuthenticated: function (val) {
+      //   if (val) {
+      //     appService.getProfile()
+      //       .then(profile => {
+      //         this.profile = profile
+      //       })
+      //   } else {
+      //     this.profile = {}
+      //   }
+      // }
     },
     methods: {
       login () {
@@ -84,7 +86,7 @@
           .then((data) => {
             window.localStorage.setItem('token', data.token)
             window.localStorage.setItem('tokenExpiration', data.expiration)
-            this.isAuthenticated = true
+            // this.isAuthenticated = true
             this.username = ''
             this.password = ''
           })
@@ -93,14 +95,14 @@
       logout () {
         window.localStorage.setItem('token', null)
         window.localStorage.setItem('tokenExpiration', null)
-        this.isAuthenticated = false
+        // this.isAuthenticated = false
       }
     },
     created () {
       let expiration = window.localStorage.getItem('tokenExpiration')
       var unixTimestamp = new Date().getTime() / 1000
       if (expiration !== null && parseInt(expiration) - unixTimestamp > 0) {
-        this.isAuthenticated = true
+        // this.isAuthenticated = true
       }
     }
   }
