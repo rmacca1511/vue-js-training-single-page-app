@@ -58,7 +58,6 @@
       return {
         username: '',
         password: '',
-        isAuthenticated: false,
         profile: {}
       }
     },
