@@ -1,0 +1,5 @@
+before_install:
+  - gem install bundler
+language: node_js
+node_js:
+  - "7.5"
