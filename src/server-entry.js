@@ -11,5 +11,3 @@ export default context => {
     return app
   })
 }
-
-
