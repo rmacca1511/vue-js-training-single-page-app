@@ -29,6 +29,7 @@ const store = new Vuex.Store({
           .then((data) => {
             context.commit('login', data)
             resolve()
+            console.log('hey')
           })
           .catch(() => window.alert('Could not Login!'))
       })
